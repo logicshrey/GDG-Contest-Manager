@@ -66,6 +66,10 @@ const StyledCard = styled(Card)(({ theme, delay = 0 }) => ({
     transition: 'opacity 0.3s ease-in-out',
     zIndex: -1,
   },
+  padding: theme.spacing(1),
+  minHeight: '120px',
+  maxWidth: '200px',
+  margin: 'auto',
 }));
 
 const ShufflingCard = styled(Box)(({ theme, delay = 0 }) => ({
@@ -261,27 +265,27 @@ const PairsDisplay = () => {
             </Typography>
           </Paper>
 
-          <Grid container spacing={2}>
+          <Grid container spacing={1} justifyContent="center">
             {pairs.map((pair, index) => (
               <Fade 
                 in={showPairs} 
                 timeout={500 + index * 100} 
                 key={index}
               >
-                <Grid item xs={12} sm={6} md={4} lg={3}>
+                <Grid item xs={6} sm={4} md={3} lg={2}>
                   <StyledCard delay={index}>
                     <ColorBar color={googleColors[index % googleColors.length]} />
-                    <CardContent sx={{ p: 2 }}>
+                    <CardContent sx={{ p: 1 }}>
                       <Typography 
-                        variant="subtitle1" 
+                        variant="subtitle2" 
                         color={googleColors[index % googleColors.length]} 
                         gutterBottom
                         sx={{ fontWeight: 500 }}
                       >
                         Match {index + 1}
                       </Typography>
-                      <Stack spacing={1}>
-                        <Box sx={{ p: 1.5, bgcolor: 'grey.50', borderRadius: 1 }}>
+                      <Stack spacing={0.5}>
+                        <Box sx={{ p: 1, bgcolor: 'grey.50', borderRadius: 1 }}>
                           <Typography variant="body2" sx={{ fontWeight: 500 }}>
                             {pair[0]}
                           </Typography>
@@ -294,7 +298,7 @@ const PairsDisplay = () => {
                         >
                           vs
                         </Typography>
-                        <Box sx={{ p: 1.5, bgcolor: 'grey.50', borderRadius: 1 }}>
+                        <Box sx={{ p: 1, bgcolor: 'grey.50', borderRadius: 1 }}>
                           <Typography variant="body2" sx={{ fontWeight: 500 }}>
                             {pair[1]}
                           </Typography>
